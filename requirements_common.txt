@@ -1,0 +1,2 @@
+# default packages available across all runtimes
+virtualenv==20.14.0
