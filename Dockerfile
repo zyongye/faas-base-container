@@ -15,16 +15,10 @@
 # limitations under the License.
 #
 
-# build go proxy from source
-# FROM golang:1.16 AS builder_source
-# ARG GO_PROXY_GITHUB_USER=apache
-# ARG GO_PROXY_GITHUB_BRANCH=master
-# RUN git clone --branch ${GO_PROXY_GITHUB_BRANCH} \
-#   https://github.com/${GO_PROXY_GITHUB_USER}/openwhisk-runtime-go /src ;\
-#    cd /src ; env GO111MODULE=on CGO_ENABLED=0 go build main/proxy.go && \
-#    mv proxy /bin/proxy
+# This Dockerfile is adopted from 
+# https://github.com/apache/openwhisk-runtime-python/blob/e083533baa6c5d8bfadf78910eddeded4753a645/core/python39Action/Dockerfile
 
-# or build it from a release
+# build go proxy from a release
 FROM golang:1.16 AS builder_release
 ARG GO_PROXY_RELEASE_VERSION=1.16@1.18.0
 RUN curl -sL \
